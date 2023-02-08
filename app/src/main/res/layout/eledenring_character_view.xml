@@ -2,35 +2,69 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="16dp"
     android:elevation="8dp">
+>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+        <!--android:background="@mipmap/eldenring_foreground"-->
+
         <ImageView
             android:id="@+id/eldenring_character_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/cat_actual"/>
+            tools:src="@drawable/ic_android_black_24dp" />
         <TextView
-            android:id="@+id/location"
+            android:id="@+id/eldenring_character_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="32sp"
+            tools:text="matthew...elden lord..."
             app:layout_constraintTop_toBottomOf="@id/eldenring_character_image"
             app:layout_constraintStart_toStartOf="@id/eldenring_character_image"
+            />
+        <TextView
+            android:id="@+id/eldenring_character_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            app:layout_constraintTop_toBottomOf="@id/eldenring_character_name"
+            app:layout_constraintStart_toStartOf="@id/eldenring_character_name"
             tools:text="Stormveil castle"/>
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/eldenring_character_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/eldenring_character_image"
-            app:layout_constraintStart_toStartOf="@id/eldenring_character_image"
+            android:textSize="32sp"
+           tools:text="world"
+            app:layout_constraintTop_toBottomOf="@id/eldenring_character_location"
+            app:layout_constraintStart_toStartOf="@id/eldenring_character_location"
 
             />
+        <TextView
+            android:id="@+id/eldenring_character_drop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            tools:text="@string/drop"
+            app:layout_constraintTop_toBottomOf="@id/eldenring_character_description"
+            app:layout_constraintStart_toStartOf="@id/eldenring_character_description"
+            />
+        <TextView
+            android:id="@+id/eldenring_character_health"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            tools:text="@string/health"
+            app:layout_constraintTop_toBottomOf="@id/eldenring_character_drop"
+            app:layout_constraintStart_toStartOf="@id/eldenring_character_drop"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

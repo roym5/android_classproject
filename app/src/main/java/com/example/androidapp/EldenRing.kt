@@ -1,9 +1,10 @@
 package com.example.androidapp
 
 data class EldenRing(
-    val healh:Int,
+    val health:Int,
     val name:String,
     val description:String,
-    val drop:List<Int>,
+    val drop: Int,
     val location:String,
-    val image: Int)
+    val image: Int
+    )
