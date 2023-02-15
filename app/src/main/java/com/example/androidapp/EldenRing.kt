@@ -6,5 +6,5 @@ data class EldenRing(
     val description:String,
     val drop: Int,
     val location:String,
-    val image: Int
+    val image: String
     )

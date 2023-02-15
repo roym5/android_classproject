@@ -1,25 +1,44 @@
-package com.example.androidapp
+package com.example.androidapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentContainerView
-import androidx.fragment.app.commit
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidapp.ui.DetailFragment
-import com.example.androidapp.ui.EldenringListFragment
-import kotlin.random.Random
+import com.example.androidapp.EldenRing
+import com.example.androidapp.Elden_Ring_Character_Adapter
+import com.example.androidapp.R
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            add(R.id.fragment_container_view, EldenringListFragment())
-            addToBackStack(null)
-        }
+class EldenringListFragment : Fragment() {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
 
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_eldenring_list, container, false)
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.eldenring_recylcer_view)
+
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        val characters = mutableListOf<EldenRing>()
+        characters.add(createCharacter1())
+        characters.add(createCharacter2())
+        characters.add(createCharacter3())
+        characters.add(createCharacter4())
+
+        val adapter = Elden_Ring_Character_Adapter(characters)
+        recyclerView.adapter = adapter
+
+
+        return view
     }
 
     private fun createCharacter1() = EldenRing(
@@ -57,6 +76,5 @@ class MainActivity : AppCompatActivity() {
         location = "Elden Throne",
         image = R.drawable.radagon
     )
-
 
 }
