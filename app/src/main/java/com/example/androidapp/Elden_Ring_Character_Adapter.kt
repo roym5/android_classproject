@@ -49,11 +49,12 @@ class Elden_Ring_Character_Adapter(private val characters: List<EldenRing>) :
     ) : RecyclerView.ViewHolder(itemView) {
         val eldenringImage: ImageView = itemView.findViewById(R.id.eldenring_character_image)
         val eldenringLocation: TextView = itemView.findViewById(R.id.eldenring_character_location)
-        val eldenringDescription: TextView =
-            itemView.findViewById(R.id.eldenring_character_description)
+
+        // val eldenringDescription: TextView =
+        //     itemView.findViewById(R.id.eldenring_character_description)
         val eldenringName: TextView = itemView.findViewById(R.id.eldenring_character_name)
-        val eldenringDrop: TextView = itemView.findViewById(R.id.eldenring_character_drop)
-        val eldenringHealth: TextView = itemView.findViewById(R.id.eldenring_character_health)
+        //val eldenringDrop: TextView = itemView.findViewById(R.id.eldenring_character_drop)
+        //val eldenringHealth: TextView = itemView.findViewById(R.id.eldenring_character_health)
 
         init {
             itemView.setOnClickListener { onItemClick(adapterPosition) }
@@ -63,12 +64,15 @@ class Elden_Ring_Character_Adapter(private val characters: List<EldenRing>) :
 
     override fun onBindViewHolder(holder: EldenRingCharacterViewHolder, position: Int) {
         val eldenringCharacter = characters[position]
-        Glide.with(holder.itemView.context).load(eldenringCharacter.image).into(holder.eldenringImage)
-        holder.eldenringDescription.text = eldenringCharacter.description
-        holder.eldenringLocation.text = eldenringCharacter.location
+        //Glide.with(holder.itemView.context).load(eldenringCharacter.image).into(holder.eldenringImage)
+        Glide.with(holder.itemView.context)
+            .load("https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/phvVT0qZfcRms5qDAk0SI3CM.png")
+            .into(holder.eldenringImage)
+        //holder.eldenringDescription.text = eldenringCharacter.description
+        holder.eldenringLocation.text = "Found in ".plus(eldenringCharacter.location)
         holder.eldenringName.text = eldenringCharacter.name
-        holder.eldenringDrop.text = "Drop: ".plus(eldenringCharacter.drop.toString().plus(" Runes"))
-        holder.eldenringHealth.text = "Health: ".plus(eldenringCharacter.health.toString())
+        // holder.eldenringDrop.text = "Drop: ".plus(eldenringCharacter.drop.toString().plus(" Runes"))
+        // holder.eldenringHealth.text = "Health: ".plus(eldenringCharacter.health.toString())
         //holder.eldenringImage.setImageResource(eldenringCharacter.image)
 
     }

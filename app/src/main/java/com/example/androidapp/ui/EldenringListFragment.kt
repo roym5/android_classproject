@@ -32,8 +32,6 @@ class EldenringListFragment : Fragment() {
 
         val adapter = Elden_Ring_Character_Adapter(characters)
         recyclerView.adapter = adapter
-
-
         return view
     }
 
