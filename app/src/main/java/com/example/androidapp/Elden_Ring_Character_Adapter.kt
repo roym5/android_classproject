@@ -63,13 +63,13 @@ class Elden_Ring_Character_Adapter(private val characters: List<EldenRing>) :
 
     override fun onBindViewHolder(holder: EldenRingCharacterViewHolder, position: Int) {
         val eldenringCharacter = characters[position]
-        //holder.eldenringImage.setImageResource(eldenringCharacter.image)
         Glide.with(holder.itemView.context).load(eldenringCharacter.image).into(holder.eldenringImage)
         holder.eldenringDescription.text = eldenringCharacter.description
         holder.eldenringLocation.text = eldenringCharacter.location
         holder.eldenringName.text = eldenringCharacter.name
         holder.eldenringDrop.text = "Drop: ".plus(eldenringCharacter.drop.toString().plus(" Runes"))
         holder.eldenringHealth.text = "Health: ".plus(eldenringCharacter.health.toString())
+        //holder.eldenringImage.setImageResource(eldenringCharacter.image)
 
     }
 

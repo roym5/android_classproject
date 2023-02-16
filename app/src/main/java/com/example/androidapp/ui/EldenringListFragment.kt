@@ -12,10 +12,6 @@ import com.example.androidapp.Elden_Ring_Character_Adapter
 import com.example.androidapp.R
 
 class EldenringListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +43,7 @@ class EldenringListFragment : Fragment() {
         description = "Lord of Stormveil Castle",
         drop = 10000,
         location = "Stormveil Castle",
-        image = R.drawable.godrick_the_grafted
+        image = "https://static.wikia.nocookie.net/eldenring/images/4/43/ER_Godrick_the_Grafted.jpg/revision/latest?cb=20220417190541"
     )
 
     private fun createCharacter2() = EldenRing(
@@ -56,7 +52,7 @@ class EldenringListFragment : Fragment() {
         description = "General Radahn was the most powerful demigod and a ferocious warrior, who warred with his siblings for control of the Great Runes.",
         drop = 70000,
         location = "Redmane Castle",
-        image = R.drawable.general_radahn
+        image = "https://static.wikia.nocookie.net/eldenring/images/3/32/ER_General_Radahn.jpg/revision/latest?cb=20220217022220"
     )
 
     private fun createCharacter3() = EldenRing(
@@ -65,7 +61,7 @@ class EldenringListFragment : Fragment() {
         description = "A strange alien lifeform comprised of many-colored star debris which landed in the Lands Between long ago",
         drop = 80000,
         location = "Lake of Rot",
-        image = R.drawable.astel
+        image = "https://eldenring.wiki.fextralife.com/file/Elden-Ring/astel-naturalborn-of-the-void-1-hq-elden-ring-wiki-guide.jpg"
     )
 
     private fun createCharacter4() = EldenRing(
@@ -74,7 +70,7 @@ class EldenringListFragment : Fragment() {
         description = "A tall, fractured god wielding the hammer that shattered the Elden Ring",
         drop = 0,
         location = "Elden Throne",
-        image = R.drawable.radagon
+        image = "https://eldenring.wiki.fextralife.com/file/Elden-Ring/radagon-of-the-golden-order-boss-elden-ring-wiki-guide.jpg"
     )
 
 }

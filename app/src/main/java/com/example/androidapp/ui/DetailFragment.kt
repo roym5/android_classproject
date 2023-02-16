@@ -8,16 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.androidapp.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DetailFragment : Fragment() {
 
 
@@ -29,13 +20,18 @@ class DetailFragment : Fragment() {
         val view= inflater.inflate(R.layout.fragment_detail, container, false)
         if(arguments!=null){
             val name=requireArguments().getString("name")
-            val health=requireArguments().getString("health")
+            val health=requireArguments().getInt("health")
             val description=requireArguments().getString("description")
             val location=requireArguments().getString("location")
-            val drop=requireArguments().getString("drop")
+            val drop=requireArguments().getInt("drop")
             val image=requireArguments().getString("image")
 
-           // view.findViewById<TextView>(R.id.eldenring_character_image)=image
+            view.findViewById<TextView>(R.id.character_name).text=name
+            view.findViewById<TextView>(R.id.character_health).text=health.toString()
+            view.findViewById<TextView>(R.id.character_description).text=description
+            view.findViewById<TextView>(R.id.character_location).text=location
+            view.findViewById<TextView>(R.id.character_drop).text=drop.toString()
+            view.findViewById<TextView>(R.id.character_image).text=image
 
         }
         return view

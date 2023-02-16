@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
+/*
     private fun createCharacter1() = EldenRing(
         health = 25100,
         name = "Godrick the grafted",
@@ -57,6 +57,6 @@ class MainActivity : AppCompatActivity() {
         location = "Elden Throne",
         image = R.drawable.radagon
     )
-
+*/
 
 }
