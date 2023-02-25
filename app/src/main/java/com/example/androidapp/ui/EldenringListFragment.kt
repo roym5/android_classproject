@@ -1,28 +1,33 @@
 package com.example.androidapp.ui
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.androidapp.EldenRing
-import com.example.androidapp.Elden_Ring_Character_Adapter
 import com.example.androidapp.R
+import com.example.androidapp.databinding.FragmentEldenringListBinding
+import com.example.androidapp.model.EldenRing
+import com.example.androidapp.ui.adapter.EldenRingCharacterAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EldenringListFragment : Fragment() {
+    private var _binding: FragmentEldenringListBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_eldenring_list, container, false)
+        _binding = FragmentEldenringListBinding.inflate(inflater, container, false)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.eldenring_recylcer_view)
-
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.eldenringRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         val characters = mutableListOf<EldenRing>()
         characters.add(createCharacter1())
@@ -30,9 +35,30 @@ class EldenringListFragment : Fragment() {
         characters.add(createCharacter3())
         characters.add(createCharacter4())
 
-        val adapter = Elden_Ring_Character_Adapter(characters)
-        recyclerView.adapter = adapter
-        return view
+        val adapter = EldenRingCharacterAdapter(characters) { position ->
+            val character = characters[position]
+
+            val bundle = bundleOf(
+                "name" to character.name,
+                "description" to character.description,
+                "location" to character.location,
+                "health" to character.health,
+                "drop" to character.drop,
+                "image" to character.image
+            )
+
+            val detailFragment = DetailFragment()
+            detailFragment.arguments = bundle
+
+            requireActivity().supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace(R.id.fragment_container_view, detailFragment)
+                addToBackStack(null)
+            }
+        }
+        binding.eldenringRecyclerView.adapter = adapter
+
+        return binding.root
     }
 
     private fun createCharacter1() = EldenRing(

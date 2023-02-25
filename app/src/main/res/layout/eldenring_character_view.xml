@@ -7,7 +7,7 @@
     android:layout_margin="16dp"
     android:elevation="8dp"
     >
->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -37,34 +37,6 @@
             app:layout_constraintTop_toBottomOf="@id/eldenring_character_name"
             app:layout_constraintStart_toStartOf="@id/eldenring_character_name"
             tools:text="Stormveil castle"/>
-        <TextView
-            android:id="@+id/eldenring_character_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="32sp"
-           tools:text="world"
-            app:layout_constraintTop_toBottomOf="@id/eldenring_character_location"
-            app:layout_constraintStart_toStartOf="@id/eldenring_character_location"
-
-            />
-        <TextView
-            android:id="@+id/eldenring_character_drop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="32sp"
-            tools:text="@string/drop"
-            app:layout_constraintTop_toBottomOf="@id/eldenring_character_description"
-            app:layout_constraintStart_toStartOf="@id/eldenring_character_description"
-            />
-        <TextView
-            android:id="@+id/eldenring_character_health"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="32sp"
-            tools:text="@string/health"
-            app:layout_constraintTop_toBottomOf="@id/eldenring_character_drop"
-            app:layout_constraintStart_toStartOf="@id/eldenring_character_drop"
-            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
